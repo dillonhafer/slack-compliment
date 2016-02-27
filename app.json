@@ -1,0 +1,6 @@
+{
+  "name": "Slack Compliment",
+  "description": "A Slack slash command that sends a user a random compliment`",
+  "repository": "https://github.com/silent1mezzo/slack-compliment/",
+  "keywords": ["slack", "node"]
+}

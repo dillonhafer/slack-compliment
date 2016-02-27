@@ -25,3 +25,8 @@ $ curl --data "token=<token>&text=@silent1mezzo" http://localhost:5000
 
 ### Production
 To be able to use this command in your Slack channel you'll first have to how this node app somewhere (Heroku for example) and then add it as a [custom integration in Slack](https://api.slack.com/slash-commands).
+
+### Heroku
+If you'd like to use Heroku you can use the following link.
+
+[![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy?template=https://github.com/silent1mezzo/slack-compliment/tree/master)

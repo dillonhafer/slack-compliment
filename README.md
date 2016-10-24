@@ -1,10 +1,12 @@
 # Slack Compliment
 
-A very basic Slack command that sends a random compliment to a person you chose (or the entire chanel).
+A very basic Slack command that sends a random compliment to a person you chose
+(or the entire channel).
 
 ## Installation
 
-The following three steps will install `slack-compliment` and allow you to run it locally.
+The following three steps will install `slack-compliment` and allow you to run
+it locally.
 
 ```
 $ git clone git@github.com:dillonhafer/slack-compliment.git
@@ -15,18 +17,24 @@ $ npm install
 ## Usage
 
 ### Locally
+
 You can run this app locally to test out the various compliments.
 
 ```
 $ export SLACK_TOKEN=<token>
 $ npm start
-$ curl --data "token=<token>&text=@silent1mezzo" http://localhost:5000
+$ curl --data "token=<token>&text=@silent1mezzo" http://localhost:5000/
+$ curl --data "token=<token>&text=@silent1mezzo" http://localhost:5000/sandwhich
 ```
 
 ### Production
-To be able to use this command in your Slack channel you'll first have to how this node app somewhere (Heroku for example) and then add it as a [custom integration in Slack](https://api.slack.com/slash-commands).
+
+To be able to use this command in your Slack channel you'll first have to how
+this node app somewhere (Heroku for example) and then add it as a [custom
+integration in Slack](https://api.slack.com/slash-commands).
 
 ### Heroku
+
 If you'd like to use Heroku you can use the following link.
 
 [![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy?template=https://github.com/dillonhafer/slack-compliment/tree/master)

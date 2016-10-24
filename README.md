@@ -11,7 +11,7 @@ it locally.
 ```
 $ git clone git@github.com:dillonhafer/slack-compliment.git
 $ cd slack-compliment/
-$ npm install
+$ yarn install
 ```
 
 ## Usage
@@ -21,10 +21,8 @@ $ npm install
 You can run this app locally to test out the various compliments.
 
 ```
-$ export SLACK_TOKEN=<token>
-$ npm start
-$ curl --data "token=<token>&text=@silent1mezzo" http://localhost:5000/
-$ curl --data "token=<token>&text=@silent1mezzo" http://localhost:5000/sandwhich
+$ SLACK_TOKEN=<token> npm start
+$ curl --data "token=<token>" http://localhost:5000/sandwhich
 ```
 
 ### Production

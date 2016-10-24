@@ -7,34 +7,14 @@ const criticisms = require('./criticisms');
 const app = express();
 
 app.set('port', (process.env.PORT || 5000));
-
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
-
 
 const token = process.env.SLACK_TOKEN;
 const max_length = compliments.length;
 const max_critic_length = criticisms.length;
 
 app.set('view engine', 'ejs');
-
-app.post('/', function(request, response) {
-  if (request.body.token !== token) {
-    response.status(404).send('Access Forbidden');
-  } else {
-    let compliment = compliments[Math.floor(Math.random() * (max_length - 0)) + 0];
-    var username = '';
-
-    if (request.body.text !== undefined && request.body.text !== '') {
-      username = request.body.text;
-    }
-
-    response.send({
-      "response_type": "in_channel",
-      "text": `${username} ${compliment}`.trim()
-    });
-  }
-});
 
 const findComplimentIndex = (index, maxLength) => {
   let newIndex = Math.floor(Math.random() * (maxLength - 0)) + 0;
@@ -44,7 +24,7 @@ const findComplimentIndex = (index, maxLength) => {
   return newIndex;
 }
 
-app.post('/sandwhich', function(request, response) {
+app.post('/sandwich', function(request, response) {
   if (request.body.token !== token) {
     response.status(404).send('Access Forbidden');
   } else {

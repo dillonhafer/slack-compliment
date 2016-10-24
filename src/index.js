@@ -15,10 +15,10 @@ const token = process.env.SLACK_TOKEN;
 const max_length = compliments.length;
 const max_critic_length = criticisms.length;
 
-const randomIndex = (index, maxLength) => {
+const randomIndex = (maxLength, existingIndex) => {
   let newIndex = Math.floor(Math.random() * (maxLength - 0)) + 0;
-  if (newIndex === index) {
-    newIndex = randomIndex(index)
+  if (newIndex === existingIndex) {
+    newIndex = randomIndex(existingIndex)
   }
 
   return newIndex;
@@ -28,12 +28,12 @@ app.post('/sandwich', function(request, response) {
   if (request.body.token !== token) {
     response.status(404).send('Access Forbidden');
   } else {
-    const firstIndex = randomIndex(null, max_length);
-    const lastIndex  = randomIndex(firstIndex, max_length);
+    const firstIndex = randomIndex(max_length);
+    const lastIndex  = randomIndex(max_length, firstIndex);
 
     const openingCompliment = compliments[firstIndex];
     const closingCompliment = compliments[lastIndex];
-    const criticism = criticisms[randomIndex(null, max_critic_length)];
+    const criticism = criticisms[randomIndex(max_critic_length)];
 
     response.send({
       "text": `${openingCompliment}, but I have to say, ${criticism}, but I have always felt like ${closingCompliment}.`

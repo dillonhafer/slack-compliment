@@ -54,15 +54,9 @@ app.post('/sandwhich', function(request, response) {
     const openingCompliment = compliments[firstIndex];
     const closingCompliment = compliments[lastIndex];
     const criticism = criticisms[findComplimentIndex(null, max_critic_length)];
-    let username = '';
-
-    if (request.body.text !== undefined && request.body.text !== '') {
-      username = request.body.text;
-    }
 
     response.send({
-      "response_type": "in_channel",
-      "text": `${username} ${openingCompliment}, but ${criticism}, but I have always felt like ${closingCompliment}`.trim()
+      "text": `${openingCompliment}, but ${criticism}, but I have always felt like ${closingCompliment}`.trim()
     });
   }
 });

@@ -14,6 +14,12 @@ $ cd slack-compliment/
 $ yarn install
 ```
 
+## Testing
+
+```
+$ npm test
+```
+
 ## Usage
 
 ### Locally

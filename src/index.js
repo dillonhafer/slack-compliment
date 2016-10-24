@@ -1,9 +1,10 @@
 'use strict';
 
-var express = require('express');
-var bodyParser = require('body-parser');
-var compliments = require('./compliments');
-var app = express();
+const express = require('express');
+const bodyParser = require('body-parser');
+const compliments = require('./compliments');
+const criticisms = require('./criticisms');
+const app = express();
 
 app.set('port', (process.env.PORT || 5000));
 
@@ -11,8 +12,8 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
 
-let token = process.env.SLACK_TOKEN;
-let max_length = compliments.length;
+const token = process.env.SLACK_TOKEN;
+const max_length = compliments.length;
 
 app.set('view engine', 'ejs');
 
@@ -29,7 +30,38 @@ app.post('/', function(request, response) {
 
     response.send({
       "response_type": "in_channel",
-      "text": `${username} ${compliment}`
+      "text": `${username} ${compliment}`.trim()
+    });
+  }
+});
+
+const findComplimentIndex = (index, maxLength) => {
+  let newIndex = Math.floor(Math.random() * (maxLength - 0)) + 0;
+  if (newIndex === index) {
+    newIndex = findComplimentIndex(index)
+  }
+  return newIndex;
+}
+
+app.post('/sandwhich', function(request, response) {
+  if (request.body.token !== token) {
+    response.status(404).send('Access Forbidden');
+  } else {
+    const firstIndex = findComplimentIndex(null, max_length);
+    const lastIndex  = findComplimentIndex(firstIndex, max_length);
+
+    const openingCompliment = compliments[firstIndex];
+    const closingCompliment = compliments[lastIndex];
+    const criticism = criticisms[findComplimentIndex(null, 1)];
+    let username = '';
+
+    if (request.body.text !== undefined && request.body.text !== '') {
+      username = request.body.text;
+    }
+
+    response.send({
+      "response_type": "in_channel",
+      "text": `${username} ${openingCompliment}, but ${criticism}, but I have always felt like ${closingCompliment}`.trim()
     });
   }
 });

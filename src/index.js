@@ -7,6 +7,7 @@ const criticisms = require('./criticisms');
 const app = express();
 
 app.set('port', (process.env.PORT || 5000));
+app.set('view engine', 'ejs');
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
@@ -14,13 +15,12 @@ const token = process.env.SLACK_TOKEN;
 const max_length = compliments.length;
 const max_critic_length = criticisms.length;
 
-app.set('view engine', 'ejs');
-
-const findComplimentIndex = (index, maxLength) => {
+const randomIndex = (index, maxLength) => {
   let newIndex = Math.floor(Math.random() * (maxLength - 0)) + 0;
   if (newIndex === index) {
-    newIndex = findComplimentIndex(index)
+    newIndex = randomIndex(index)
   }
+
   return newIndex;
 }
 
@@ -28,12 +28,12 @@ app.post('/sandwich', function(request, response) {
   if (request.body.token !== token) {
     response.status(404).send('Access Forbidden');
   } else {
-    const firstIndex = findComplimentIndex(null, max_length);
-    const lastIndex  = findComplimentIndex(firstIndex, max_length);
+    const firstIndex = randomIndex(null, max_length);
+    const lastIndex  = randomIndex(firstIndex, max_length);
 
     const openingCompliment = compliments[firstIndex];
     const closingCompliment = compliments[lastIndex];
-    const criticism = criticisms[findComplimentIndex(null, max_critic_length)];
+    const criticism = criticisms[randomIndex(null, max_critic_length)];
 
     response.send({
       "text": `${openingCompliment}, but I have to say, ${criticism}, but I have always felt like ${closingCompliment}.`

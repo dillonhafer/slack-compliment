@@ -1,4 +1,4 @@
-# Slack Compliment Sandwich
+# Slack Compliment Sandwich [![CircleCI](https://circleci.com/gh/dillonhafer/slack-compliment/tree/master.svg?style=svg)](https://circleci.com/gh/dillonhafer/slack-compliment/tree/master)
 
 A very basic Slack command that sends a random compliment sandwich to a person you chose
 (or the entire channel).

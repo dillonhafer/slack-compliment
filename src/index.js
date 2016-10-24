@@ -31,7 +31,7 @@ app.post('/sandwich', function(request, response) {
     const firstIndex = randomIndex(max_length);
     const lastIndex  = randomIndex(max_length, firstIndex);
 
-    const openingCompliment = compliments[firstIndex];
+    const openingCompliment = capitalizeFirstLetter(compliments[firstIndex]);
     const closingCompliment = compliments[lastIndex];
     const criticism = criticisms[randomIndex(max_critic_length)];
 
@@ -40,6 +40,10 @@ app.post('/sandwich', function(request, response) {
     });
   }
 });
+
+function capitalizeFirstLetter(string) {
+  return string.charAt(0).toUpperCase() + string.slice(1);
+}
 
 app.listen(app.get('port'), function() {
   console.log('Node app is running on port', app.get('port'));

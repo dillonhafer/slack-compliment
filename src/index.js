@@ -56,7 +56,7 @@ app.post('/sandwhich', function(request, response) {
     const criticism = criticisms[findComplimentIndex(null, max_critic_length)];
 
     response.send({
-      "text": `${openingCompliment}, but ${criticism}, but I have always felt like ${closingCompliment}`.trim()
+      "text": `${openingCompliment}, but I have to say, ${criticism}, but I have always felt like ${closingCompliment}.`
     });
   }
 });

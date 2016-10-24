@@ -1,6 +1,6 @@
 {
-  "name": "Slack Compliment",
-  "description": "A Slack slash command that sends a user a random compliment`",
-  "repository": "https://github.com/silent1mezzo/slack-compliment/",
+  "name": "Slack Compliment Sandwich",
+  "description": "A Slack slash command that sends a user a random compliment sandwich`",
+  "repository": "https://github.com/dillonhafer/slack-compliment/",
   "keywords": ["slack", "node"]
 }

@@ -22,7 +22,7 @@ You can run this app locally to test out the various compliments.
 
 ```
 $ SLACK_TOKEN=<token> npm start
-$ curl --data "token=<token>" http://localhost:5000/sandwhich
+$ curl --data "token=<token>" http://localhost:5000/sandwich
 ```
 
 ### Production

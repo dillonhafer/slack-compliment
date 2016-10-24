@@ -1,6 +1,6 @@
-# Slack Compliment
+# Slack Compliment Sandwich
 
-A very basic Slack command that sends a random compliment to a person you chose
+A very basic Slack command that sends a random compliment sandwich to a person you chose
 (or the entire channel).
 
 ## Installation

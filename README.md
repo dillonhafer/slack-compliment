@@ -7,7 +7,7 @@ A very basic Slack command that sends a random compliment to a person you chose 
 The following three steps will install `slack-compliment` and allow you to run it locally.
 
 ```
-$ git clone git@github.com:silent1mezzo/slack-compliment.git
+$ git clone git@github.com:dillonhafer/slack-compliment.git
 $ cd slack-compliment/
 $ npm install
 ```
@@ -29,4 +29,4 @@ To be able to use this command in your Slack channel you'll first have to how th
 ### Heroku
 If you'd like to use Heroku you can use the following link.
 
-[![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy?template=https://github.com/silent1mezzo/slack-compliment/tree/master)
+[![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy?template=https://github.com/dillonhafer/slack-compliment/tree/master)

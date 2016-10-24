@@ -14,6 +14,7 @@ app.use(bodyParser.json());
 
 const token = process.env.SLACK_TOKEN;
 const max_length = compliments.length;
+const max_critic_length = criticisms.length;
 
 app.set('view engine', 'ejs');
 
@@ -52,7 +53,7 @@ app.post('/sandwhich', function(request, response) {
 
     const openingCompliment = compliments[firstIndex];
     const closingCompliment = compliments[lastIndex];
-    const criticism = criticisms[findComplimentIndex(null, 1)];
+    const criticism = criticisms[findComplimentIndex(null, max_critic_length)];
     let username = '';
 
     if (request.body.text !== undefined && request.body.text !== '') {

@@ -1,4 +1,5 @@
 'use strict';
+import { randomIndex } from './generator';
 
 const express = require('express');
 const bodyParser = require('body-parser');
@@ -14,15 +15,6 @@ app.use(bodyParser.json());
 const token = process.env.SLACK_TOKEN;
 const max_length = compliments.length;
 const max_critic_length = criticisms.length;
-
-const randomIndex = (maxLength, existingIndex) => {
-  let newIndex = Math.floor(Math.random() * (maxLength - 0)) + 0;
-  if (newIndex === existingIndex) {
-    newIndex = randomIndex(existingIndex)
-  }
-
-  return newIndex;
-}
 
 app.post('/sandwich', function(request, response) {
   if (request.body.token !== token) {

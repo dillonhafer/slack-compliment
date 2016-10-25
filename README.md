@@ -33,7 +33,7 @@ $ curl --data "token=<token>" http://localhost:5000/sandwich
 
 ### Production
 
-To be able to use this command in your Slack channel you'll first have to how
+To be able to use this command in your Slack channel you'll first have to have
 this node app somewhere (Heroku for example) and then add it as a [custom
 integration in Slack](https://api.slack.com/slash-commands).
 

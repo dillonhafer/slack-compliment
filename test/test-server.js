@@ -3,7 +3,7 @@ process.env.SLACK_TOKEN = 'secret';
 
 import chai, {should} from 'chai';
 import chaiHttp from 'chai-http';
-const server = require('../src/index.js');
+const server = require('../src/server.js');
 
 chai.use(chaiHttp);
 should();

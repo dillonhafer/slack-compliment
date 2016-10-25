@@ -1,5 +1,9 @@
 'use strict';
-import { randomIndex, capitalize } from './generator';
+import {
+  capitalize,
+  randomIndex,
+  sandwich,
+} from './generator';
 
 const express = require('express');
 const bodyParser = require('body-parser');
@@ -27,10 +31,9 @@ app.post('/sandwich', function(request, response) {
   const openingCompliment = capitalize(compliments[firstIndex]);
   const closingCompliment = compliments[lastIndex];
   const criticism = criticisms[randomIndex(max_critic_length)];
+  const text = sandwich(openingCompliment, criticism, closingCompliment);
 
-  response.send({
-    "text": `${openingCompliment}, but I have to say, ${criticism}, but I have always felt like ${closingCompliment}.`
-  });
+  response.send({text});
 });
 
 app.listen(app.get('port'), function() {

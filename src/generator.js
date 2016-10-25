@@ -10,4 +10,8 @@ module.exports = {
   capitalize(string) {
     return string.charAt(0).toUpperCase() + string.slice(1);
   },
+
+  sandwich(compliment, criticism, compliment2) {
+    return `${module.exports.capitalize(compliment)}, but I have to say, ${criticism}, but I have always felt like ${compliment2}.`
+  },
 }

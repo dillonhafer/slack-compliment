@@ -28,7 +28,7 @@ You can run this app locally to test out the various compliments.
 
 ```
 $ SLACK_TOKEN=<token> npm start
-$ curl --data "token=<token>" http://localhost:5000/sandwich
+$ curl --data "token=<token>" -XPOST localhost:5000/sandwich
 ```
 
 ### Production

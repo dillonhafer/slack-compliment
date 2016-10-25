@@ -1,4 +1,4 @@
-const criticisms = [
+export default [
   "all of your ideas are boring",
   "I am utterly annoyed by your wit",
   "I disagree with anyone who agrees with you",
@@ -44,5 +44,3 @@ const criticisms = [
   "your life is so boring",
   "you need to stop leaving the Cheerios out",
 ];
-
-module.exports = criticisms;

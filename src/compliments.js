@@ -1,4 +1,4 @@
-var compliments = [
+export default [
   "Chuck Norris is intimidated by you",
   "daily commuters appreciate the way you signal in advance",
   "doctors boast about the perfection that exudes from your gallbladder",
@@ -15,5 +15,3 @@ var compliments = [
   "your speech reaches the masses like wind chimes spreading nature's song",
   "your stride is as graceful as a skateboard on smooth terrain",
 ];
-
-module.exports = compliments;

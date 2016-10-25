@@ -1,22 +1,23 @@
 process.env.NODE_ENV = 'test';
 process.env.SLACK_TOKEN = 'secret';
 
-const chai     = require("chai");
-const server   = require("../src/index.js");
-const chaiHttp = require('chai-http');
-const should   = chai.should();
+import chai, {should} from 'chai';
+import chaiHttp from 'chai-http';
+const server = require('../src/index.js');
+
 chai.use(chaiHttp);
+should();
 
-describe("Compliment Sandwich", function(){
+describe("Compliment Sandwich", () => {
 
-  describe("POST /sandwich", function() {
+  describe("POST /sandwich", () => {
 
-    describe("With the wrong slack token", function() {
-      it("returns an error without a token", function(done) {
+    describe("With the wrong slack token", () => {
+      it("returns an error without a token", (done) => {
         chai.request(server)
           .post('/sandwich')
           .send({'token': ''})
-          .end(function(err, res){
+          .end((err, res) => {
             res.should.have.status(404);
             res.error.text.should.include("Access Forbidden");
             done();
@@ -24,12 +25,12 @@ describe("Compliment Sandwich", function(){
       });
     });
 
-    describe("With the write slack token", function() {
-      it("returns a compliment sandwichi without a token", function(done) {
+    describe("With the write slack token", () => {
+      it("returns a compliment sandwich with a token", (done) => {
         chai.request(server)
           .post('/sandwich')
           .send({'token': 'secret'})
-          .end(function(err, res){
+          .end((err, res) => {
             res.should.have.status(200);
             res.text.should.include("but I have to say");
             done();

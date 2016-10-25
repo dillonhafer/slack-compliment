@@ -1,5 +1,5 @@
 import { expect } from 'chai';
-import { randomIndex } from '../src/generator.js';
+import { randomIndex, capitalize } from '../src/generator.js';
 
 describe("Compliment Generator", function(){
   describe("randomIndex()", function() {
@@ -28,6 +28,20 @@ describe("Compliment Generator", function(){
         expect(first).to.not.equal(test);
         done();
       });
+    });
+  });
+
+  describe("capitalize()", () => {
+    it("Capitalizes an all lowercase word", () => {
+      expect(capitalize("sandwich")).to.equal("Sandwich");
+    });
+
+    it("Doesn't change an all uppercase word", () => {
+      expect(capitalize("SANDWICH")).to.equal("SANDWICH");
+    });
+
+    it("Capitalizes first word of a sentence", () => {
+      expect(capitalize("the quick brown Fox")).to.equal("The quick brown Fox");
     });
   });
 });

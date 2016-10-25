@@ -7,8 +7,12 @@ import {
 import compliments from './compliments';
 import criticisms  from './criticisms';
 
-const authorizedRequest = (token, requestFunction) => {
-  return function(request, response) {
+const generateCriticism = () => {
+  return criticisms[randomIndex(criticisms.length)];
+}
+
+export const newAuthorizedRequest = (token, requestFunction) => {
+  return (request, response) => {
     if (request.body.token !== token) {
       response.status(404).send('Access Forbidden');
     }
@@ -17,19 +21,13 @@ const authorizedRequest = (token, requestFunction) => {
   }
 }
 
-const generateCriticism = () => {
-  return criticisms[randomIndex(criticisms.length)];
-}
+export const postSandwich = (request, response) => {
+  const firstIndex = randomIndex(compliments.length);
+  const lastIndex  = randomIndex(compliments.length, firstIndex);
 
-export const postSandwich = (token) => {
-  return authorizedRequest(token, (request, response) => {
-    const firstIndex = randomIndex(compliments.length);
-    const lastIndex  = randomIndex(compliments.length, firstIndex);
+  const openingCompliment = capitalize(compliments[firstIndex]);
+  const closingCompliment = compliments[lastIndex];
 
-    const openingCompliment = capitalize(compliments[firstIndex]);
-    const closingCompliment = compliments[lastIndex];
-
-    const text = sandwich(openingCompliment, generateCriticism(), closingCompliment);
-    response.send({text});
-  });
+  const text = sandwich(openingCompliment, generateCriticism(), closingCompliment);
+  response.send({text});
 }

@@ -14,7 +14,7 @@ const generateCriticism = () => {
 export const newAuthorizedRequest = (token, requestFunction) => {
   return (request, response) => {
     if (request.body.token !== token) {
-      response.status(404).send('Access Forbidden');
+      return response.status(404).send('Access Forbidden');
     }
 
     requestFunction(request, response);

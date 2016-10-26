@@ -32,7 +32,7 @@ describe("Compliment Sandwich", () => {
           .send({'token': 'secret'})
           .end((err, res) => {
             res.should.have.status(200);
-            res.text.should.include("but I have to say");
+            res.text.should.include("However");
             done();
           });
       });

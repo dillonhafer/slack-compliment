@@ -52,7 +52,7 @@ describe("Compliment Generator", () => {
       const criticism   = "you smell funny";
       const compliment2 = "you are smart";
 
-      expect(sandwich(compliment, criticism, compliment2)).to.equal("You are cool, but I have to say, you smell funny, but I have always felt like you are smart.");
+      expect(sandwich(compliment, criticism, compliment2)).to.equal("You are cool.\nHowever, you smell funny.\nBut, I have always felt like you are smart!");
     });
   });
 });

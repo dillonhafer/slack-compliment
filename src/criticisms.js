@@ -43,4 +43,6 @@ export default [
   "your cooking is worse than my mother's",
   "your life is so boring",
   "you need to stop leaving the Cheerios out",
+  "I have a better plan than the one you presented",
+  "you should delete your Twitter account",
 ];
